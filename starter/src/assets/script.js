@@ -60,6 +60,13 @@ function addProductToCart(productIdClicked) {
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
+function increaseQuantity(productIdClicked) {
+  for (let i = 0; i < cart.length + 1; i++) {
+    if (products[i].productId === productIdClicked) {
+      products[i].quantity++;
+    }
+  }
+}
 
 /* Create a function named decreaseQuantity that takes in the productId as an argument
   - decreaseQuantity should get the correct product based on the productId
@@ -100,7 +107,7 @@ module.exports = {
   products,
   cart,
   addProductToCart,
-  // increaseQuantity,
+  increaseQuantity,
   // decreaseQuantity,
   // removeProductFromCart,
   // cartTotal,
