@@ -39,12 +39,22 @@ const products = [
 */
 
 /* Declare an empty array named cart to hold the items in the cart */
+const cart = [];
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
+function addProductToCart(productIdClicked) {
+  for (let i = 0; i < cart.length + 1; i++) {
+    if (products[i].productId === productIdClicked) {
+      products[i].quantity++;
+    } else {
+      cart.push(products[i]);
+    }
+  }
+}
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
@@ -90,12 +100,12 @@ module.exports = {
   products,
   cart,
   addProductToCart,
-  increaseQuantity,
-  decreaseQuantity,
-  removeProductFromCart,
-  cartTotal,
-  pay,
-  emptyCart,
+  // increaseQuantity,
+  // decreaseQuantity,
+  // removeProductFromCart,
+  // cartTotal,
+  // pay,
+  // emptyCart,
   /* Uncomment the following line if completing the currency converter bonus */
   // currency
 };
