@@ -87,6 +87,13 @@ function removeProductFromCart(productId) {
   - cartTotal should return the total cost of the products in the cart
   Hint: price and quantity can be used to determine total cost
 */
+function cartTotal() {
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    total += cart[i].price * cart[i].quantity;
+  }
+  return total;
+}
 
 /* Create a function called emptyCart that empties the products from the cart */
 
