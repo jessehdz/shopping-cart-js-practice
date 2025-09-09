@@ -5,38 +5,28 @@ const products = [
     price: 1.99,
     quantity: 0,
     productId: 101,
-    image: "images/cherry.jpg",
+    image: "./images/cherry.jpg",
   },
   {
     name: "Orange",
     price: 0.99,
     quantity: 0,
     productId: 102,
-    image: "images/orange.jpg",
+    image: "./images/orange.jpg",
   },
   {
     name: "Strawberry",
     price: 1.99,
     quantity: 0,
     productId: 103,
-    image: "images/strawberry.jpg",
+    image: "./images/strawberry.jpg",
   },
 ];
 
-/* Create 3 or more product objects using object literal notation 
-   Each product should include five properties
-   - name: name of product (string)
-   - price: price of product (number)
-   - quantity: quantity in cart should start at zero (number)
-   - productId: unique id for the product (number)
-   - image: picture of product (url string)
-*/
-
-/* Images provided in /images folder. All images from Unsplash.com
-   - cherry.jpg by Mae Mu
-   - orange.jpg by Mae Mu
-   - strawberry.jpg by Allec Gomes
-*/
+// Finds product in array by productId
+function findProductById(productId) {
+  return products.find((product) => product.productId === productId);
+}
 
 /* Declare an empty array named cart to hold the items in the cart */
 const cart = [];
@@ -46,9 +36,9 @@ const cart = [];
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
-function addProductToCart(productIdClicked) {
+function addProductToCart(productId) {
   for (let i = 0; i < cart.length + 1; i++) {
-    if (products[i].productId === productIdClicked) {
+    if (products[i].productId === productId) {
       products[i].quantity++;
     } else {
       cart.push(products[i]);
@@ -110,9 +100,9 @@ function decreaseQuantity(productIdClicked) {
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
 /* The following is for running unit tests. 
-   To fully complete this project, it is expected that all tests pass.
-   Run the following command in terminal to run tests
-   npm run test
+  To fully complete this project, it is expected that all tests pass.
+  Run the following command in terminal to run tests
+  npm run test
 */
 
 module.exports = {
@@ -120,7 +110,7 @@ module.exports = {
   cart,
   addProductToCart,
   increaseQuantity,
-  // decreaseQuantity,
+  decreaseQuantity,
   // removeProductFromCart,
   // cartTotal,
   // pay,
