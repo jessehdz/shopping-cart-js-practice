@@ -96,6 +96,9 @@ function cartTotal() {
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
+function emptyCart() {
+  cart.length = 0;
+}
 
 /* Create a function named pay that takes in an amount as an argument
   - amount is the money paid by customer
@@ -118,10 +121,10 @@ module.exports = {
   addProductToCart,
   increaseQuantity,
   decreaseQuantity,
-  // removeProductFromCart,
-  // cartTotal,
+  removeProductFromCart,
+  cartTotal,
   // pay,
-  // emptyCart,
+  emptyCart,
   /* Uncomment the following line if completing the currency converter bonus */
   // currency
 };
