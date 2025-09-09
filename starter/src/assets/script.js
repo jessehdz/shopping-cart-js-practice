@@ -106,6 +106,17 @@ function emptyCart() {
   - pay will return a positive number if money should be returned to customer
   Hint: cartTotal function gives us cost of all the products in the cart  
 */
+let totalPaid = 0;
+function pay(amount) {
+  totalPaid += amount;
+  const difference = totalPaid - cartTotal();
+  if (difference >= 0) {
+    const change = difference;
+    totalPaid = 0;
+    return change;
+  }
+  return difference;
+}
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
