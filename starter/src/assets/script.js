@@ -37,12 +37,11 @@ const cart = [];
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId) {
-  for (let i = 0; i < cart.length + 1; i++) {
-    if (products[i].productId === productId) {
-      products[i].quantity++;
-    } else {
-      cart.push(products[i]);
-    }
+  const product = findProductById(productId);
+  if (!product) return;
+  product.quantity++;
+  if (!cart.includes(product)) {
+    cart.push(product);
   }
 }
 
@@ -50,12 +49,10 @@ function addProductToCart(productId) {
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
-function increaseQuantity(productIdClicked) {
-  for (let i = 0; i < cart.length + 1; i++) {
-    if (products[i].productId === productIdClicked) {
-      products[i].quantity++;
-    }
-  }
+function increaseQuantity(productId) {
+  const product = findProductById(productId);
+  if (!product) return;
+  product.quantity++;
 }
 
 /* Create a function named decreaseQuantity that takes in the productId as an argument
@@ -63,16 +60,13 @@ function increaseQuantity(productIdClicked) {
   - decreaseQuantity should decrease the quantity of the product
   - if the function decreases the quantity to 0, the product is removed from the cart
 */
-function decreaseQuantity(productIdClicked) {
-  for (let i = 0; i < cart.length + 1; i++) {
-    if (
-      products[i].productId === productIdClicked &&
-      products[i].quantity === 0
-    ) {
-      products.splice(i, 1);
-    } else {
-      products[i].quantity--;
-    }
+function decreaseQuantity(productId) {
+  const product = findProductById(productId);
+  if (!product) return;
+  if (product.quantity === 1) {
+    removeProductFromCart(productId);
+  } else {
+    product.quantity--;
   }
 }
 
